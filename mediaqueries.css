@@ -56,6 +56,11 @@
     height: 83vh;
     margin-bottom: 0;
   }
+  #about {
+    &::before {
+      width: 600%;
+    }
+  }
   article {
     font-size: 1rem;
   }

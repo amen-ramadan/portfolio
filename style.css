@@ -209,6 +209,16 @@ section {
   text-align: center;
 }
 
+.user-name {
+  margin: 0 auto 15px;
+  font-size: 30px;
+  width: 280px;
+  border-right: 2px solid var(--primary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: control-width 3s steps(20) 2s both, blink 0.5s infinite;
+}
+
 #socials-container {
   display: flex;
   justify-content: center;
@@ -277,6 +287,20 @@ section {
 
 #about {
   position: relative;
+
+  &::before {
+    content: "";
+    background-color: #056d819e;
+    position: fixed;
+    width: 300%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) skew(0, -10deg);
+    border-radius: 50%;
+    z-index: -1;
+    animation: waving 10s ease-in-out infinite alternate;
+  }
 }
 
 .about-containers {
@@ -439,4 +463,50 @@ footer {
 
 footer p {
   text-align: center;
+}
+
+
+/* animation */
+
+@keyframes waving {
+  0% {
+    transform: translateX(-50%) skew(0, -10deg);
+  }
+
+  /* 25% {
+    transform: translateX(-60%) skew(0, 5deg);
+  } */
+
+  50% {
+    top: 60%;
+    transform: translateX(-30%) skew(0, 0);
+  }
+
+  /* 75% {
+    transform: translateX(-40%) skew(0, 5deg);
+  } */
+
+  100% {
+    transform: translateX(-50%) skew(0, 10deg);
+  }
+}
+
+@keyframes control-width {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 280px;
+  }
+}
+
+@keyframes blink {
+  from {
+    border-right-color: var(--main-color);
+  }
+
+  to {
+    border-right-color: transparent;
+  }
 }
