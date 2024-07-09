@@ -1,6 +1,6 @@
 @media screen and (max-width: 1400px) {
   #profile {
-    height: 83vh;
+    height: 70vh;
     margin-bottom: 6rem;
   }
   .about-containers {
@@ -12,12 +12,18 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1180px) {
   #desktop-nav {
     display: none;
   }
   #hamburger-nav {
     display: flex;
+    .option-box {
+      display: block;
+    }
+  }
+  .option-box {
+    display: none;
   }
   #experience,
   .experience-details-container {
@@ -42,13 +48,32 @@
     height: 275px;
     margin: 0 auto 2rem;
   }
+  .section__pic-container-about {
+    margin: 0 auto 2rem;
+  }
   .about-containers {
     margin-top: 0;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .cursor-follower{
+
+  svg {
+    height: 65px;
+    margin-top: 15px;
+  }
+
+  .about-pic {
+    height: 300px;
+    width: 300px;
+  }
+
+  .section__pic-container-about {
+    height: 300px;
+    width: 300px;
+  }
+
+  #magic-cursor{
     display: none;
   }
 

@@ -12,6 +12,7 @@
   --secondary-color: rgb(160, 160, 160);
   --darkMode: rgb(22, 22, 22);
   --helper-color: rgb(53, 53, 53);
+  --main-color: #002c2b;
 }
 
 body {
@@ -27,17 +28,41 @@ html {
   scroll-behavior: smooth;
 }
 
-.cursor-follower {
-  position: fixed;
-  top: -17px;
-  left: -19px;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: transform 0.1s linear;
-  z-index: 9999;
+#magic-cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
   pointer-events: none;
+  z-index: 10000;
+  -webkit-transition: opacity 0.2s ease-in-out 0.5s;
+  transition: opacity 0.2s ease-in-out 0.5s;
+}
+
+svg {
+  height: 100px;
+  width: 100px;
+  .someColorFill {
+    fill: var(--main-color);
+    opacity: 0.8;
+  }
+}
+
+#ball {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #999999;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: -20px;
+  margin-top: -20px;
 }
 
 p {
@@ -123,7 +148,7 @@ a:hover {
   top: 120%;
   right: 0;
   background-color: var(--darkMode);
-  width: fit-content;
+  width: 200px;
   max-height: 0;
   overflow: hidden;
   transition: all 0.3 ease-in-out;
@@ -144,7 +169,10 @@ a:hover {
 }
 
 .menu-links.open {
-  max-height: 300px;
+  max-height: 340px;
+  border: 1px solid;
+  border-color: var(--main-color);
+  border-radius: 5px;
 }
 
 .hamburger-icon.open span:first-child {
@@ -171,6 +199,51 @@ a:hover {
   transform: none;
 }
 
+/* OPTION COLORS */
+.option-box {
+  padding: 10px;
+  text-align: center;
+  margin: 10px;
+}
+.option-box h4 {
+  color: #666;
+  margin: 0;
+  font-size: 14px;
+}
+.option-box .color-list {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 10px 0 0;
+}
+.option-box .color-list li {
+  width: 24px;
+  height: 24px;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  border: 3px solid #eee;
+}
+.option-box .color-list li.active {
+  border-color: #fff;
+}
+.option-box .color-list li:nth-child(1) {
+  background-color: #34344e;
+}
+.option-box .color-list li:nth-child(2) {
+  background-color: #056d819e;
+}
+.option-box .color-list li:nth-child(3) {
+  background-color: #413d3d;
+}
+.option-box .color-list li:nth-child(4) {
+  background-color: #655643;
+}
+.option-box .color-list li:nth-child(5) {
+  background-color: #770101;
+}
+
 /* SECTIONS */
 
 section {
@@ -190,7 +263,8 @@ section {
 #profile {
   display: flex;
   justify-content: center;
-  gap: 5rem;
+  align-items: center;
+  gap: 15rem;
   height: 80vh;
 }
 
@@ -198,7 +272,6 @@ section {
   display: flex;
   height: 400px;
   width: 400px;
-  margin: auto 0;
 }
 
 .section__text {
@@ -306,7 +379,7 @@ section {
 
   &::before {
     content: "";
-    background-color: #056d819e;
+    background-color: var(--main-color);
     position: fixed;
     width: 300%;
     height: 100%;
@@ -336,7 +409,9 @@ section {
 }
 
 .about-pic {
-  border-radius: 2rem;
+  height: 400px;
+  width: 400px;
+  border-radius: 64% 36% 27% 73% / 74% 41% 59% 26%;
 }
 
 .arrow {
@@ -346,6 +421,7 @@ section {
 }
 
 .details-container {
+  
   padding: 1.5rem;
   flex: 1;
   border-radius: 2rem;
@@ -361,7 +437,18 @@ section {
 .section__pic-container {
   height: 400px;
   width: 400px;
-  margin: auto 0;
+  margin: 0 auto;
+}
+
+.section__pic-container-about {
+  display: flex;
+  align-items: end;
+  justify-content: start;
+  margin: 0 auto;
+  height: 400px;
+  width: 400px;
+  background-color: var(--secondary-color);
+  border-radius: 64% 36% 27% 73% / 74% 41% 59% 26%;
 }
 
 /* EXPERIENCE SECTION */
