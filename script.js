@@ -4,3 +4,11 @@ function toggleMenu() {
   menu.classList.toggle("open");
   icon.classList.toggle("open");
 }
+
+
+
+document.addEventListener('mousemove', (e) => {
+  const cursorFollower = document.querySelector('.cursor-follower');
+  
+  cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});

@@ -18,10 +18,26 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: var(--darkMode);
   color: #f9f9f9;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  scroll-behavior: auto;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+.cursor-follower {
+  position: fixed;
+  top: -17px;
+  left: -19px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.1s linear;
+  z-index: 9999;
+  pointer-events: none;
 }
 
 p {

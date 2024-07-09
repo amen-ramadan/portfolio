@@ -48,6 +48,10 @@
 }
 
 @media screen and (max-width: 600px) {
+  .cursor-follower{
+    display: none;
+  }
+
   #contact,
   footer {
     height: 40vh;
